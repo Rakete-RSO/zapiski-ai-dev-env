@@ -1,0 +1,18 @@
+version: "3.8"
+
+services:
+  postgres:
+    # Database URL for this specific configuration: postgresql://admin:123123@localhost:5432/postgres
+    image: postgres:15.2
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_USER=admin
+      - POSTGRES_PASSWORD=123123
+      - POSTGRES_DB=postgres
+    restart: always
+
+volumes:
+  postgres-data:
